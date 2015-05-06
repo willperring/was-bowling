@@ -21,8 +21,19 @@ blockquote:before, blockquote:after, q:before, q:after { content: ''; content: n
 /* line 50, ../../sass/partials/_reset.scss */
 table { border-collapse: collapse; border-spacing: 0; }
 
+/* line 1, ../../sass/partials/_ui.scss */
+a.button { margin: 5px 5px 5px 0; padding: 5px; border-radius: 5px; background: orange; display: inline-block; }
+
 /* line 1, ../../sass/partials/_scoreboard.scss */
 tr.hilite td { background: yellow; }
 
 /* line 6, ../../sass/partials/_scoreboard.scss */
+table.frames td { width: 60px; text-align: right; }
+/* line 9, ../../sass/partials/_scoreboard.scss */
+table.frames td .bowl { display: inline-block; width: 18px; height: 18px; text-align: center; padding: 3px 0; border: 1px solid black; vertical-align: top; margin-left: -1px; }
+/* line 19, ../../sass/partials/_scoreboard.scss */
+table.frames td .cumulative { display: block; }
+/* line 23, ../../sass/partials/_scoreboard.scss */
 table.frames td.hilite { background: red; }
+/* line 25, ../../sass/partials/_scoreboard.scss */
+tr.hilite table.frames td.hilite { background: orange; }

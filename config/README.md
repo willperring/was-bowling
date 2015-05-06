@@ -1,0 +1,1 @@
+config.default.php needs to be copied to config.php and have the relevant credentials filled in

@@ -19,3 +19,13 @@ spl_autoload_register( function( $class ) use ( $loadPaths ) {
 			require_once( $checkPath );
 	}
 });
+
+$configPath =  __DIR__ . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'config.php';
+if( !file_exists($configPath) )
+	die('Local configuration file has not been configured. See config/README.md');
+require_once( $configPath );
+
+$pdo = new PDO("mysql:host=127.0.0.1;port=3306;dbname=bowling", DB_USERNAME, DB_PASSWORD, array());
+Model::setPDO( $pdo );
+
+

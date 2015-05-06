@@ -3,10 +3,16 @@ angular.module('bowlingApp', [])
 
 		var controller = this;
 
-		controller.game = false;
+		controller.game         = false;
+		controller.scoreButtons = ['miss', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 		controller.startGame = function() {
 			controller.game = new Game();
+
+			// TODO: remove dev code
+			controller.game.addPlayer('Bob');
+			controller.game.addPlayer('Steve');
+			controller.game.addPlayer('Chris');
 		};
 
 		controller.addPlayer = function() {
@@ -15,6 +21,10 @@ angular.module('bowlingApp', [])
 
 			var name = prompt('Enter player name');
 			controller.game.addPlayer( name );
+		};
+
+		controller.addBowl = function( score ) {
+			controller.game.addBowl( score );
 		}
 
 	}]);

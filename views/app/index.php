@@ -28,17 +28,23 @@
 		<a href="#" class="button" ng-show="! gc.game" ng-click="gc.startGame()">New Game</a>
 		<div ng-show="gc.game">
 
+			<!-- table containing score information -->
 			<table class="scoresheet">
 
 				<!-- row for player -->
-				<tr class="player" ng-repeat="player in gc.game.players">
-					<td>{{player.name}}</td>
+				<tr ng-class="{hilite: $index==gc.game.player}" ng-repeat="player in gc.game.players">
+					<td>
+						<a href="#" ng-click="gc.game.setPlayer($index)">{{player.name}}</a>
+					</td>
 					<td>
 
 						<!-- table containing game frames -->
 						<table class="frames" ng-show="gc.game.started">
-							<tr ng-class="{hilite: $index==gc.game.player}">
-								<td ng-class="{hilite: $index==gc.game.frame}" ng-repeat="frame in player.frames">0</td>
+							<tr>
+								<td ng-class="{hilite: $index==gc.game.frame}" ng-repeat="frame in player.frames">
+									<span class="bowl" ng-repeat="score in frame.scores track by $index">{{score}}</span>
+									<span class="cumulative">0</span>
+								</td>
 							</tr>
 						</table>
 
@@ -54,6 +60,11 @@
 				</tr>
 
 			</table>
+
+			<!-- control input interface -->
+			<div id="interface" ng-show="gc.game.started && !gc.game.complete">
+				<a href="#" class="button" ng-click="gc.addBowl($index)" ng-repeat="button in gc.scoreButtons">{{button}}</a>
+			</div>
 
 		</div>
 

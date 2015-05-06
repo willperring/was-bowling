@@ -1,7 +1,27 @@
 tr.hilite td {
-	background: yellow;
+  background: yellow;
 }
 
 table.frames {
-	td.hilite { background: red; }
+  td { 
+    width: 60px;     
+    text-align: right;
+    .bowl {
+      display: inline-block; 
+      width:   18px;
+      height:  18px;
+      text-align: center;
+      padding: 3px 0;
+      border: 1px solid black;
+      vertical-align: top;
+      margin-left: -1px;
+    }
+    .cumulative { 
+      display: block;
+    }
+  }
+  td.hilite { 
+  	background: red; 
+  	tr.hilite & { background: orange; }
+  }
 }
