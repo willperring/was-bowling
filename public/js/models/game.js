@@ -52,9 +52,14 @@ Game.prototype.start = function() {
 }
 
 Game.prototype.addBowl = function( score ) {
-	var frame = this.players[ this.player ].frames[ this.frame ];
+	
+	var player = this.players[ this.player ],
+	    frame  = player.frames[ this.frame ];
+
 	if( frame.canAdd( score ) ) {
 		frame.addBowl( score );
+		player.updateCumulativeTotals();
+
 		if( frame.complete )
 			this.advancePlayer();
 	}
@@ -63,6 +68,14 @@ Game.prototype.addBowl = function( score ) {
 
 Game.prototype.getSaveData = function() {
 
+	var rawData = {};
+
+	for( var i=0; i<this.players.length; i++ ) {
+		var player = this.players[i];
+		rawData[ player.name ] = player.getSaveData();
+	}
+
+	return rawData;
 }
 
 Game.prototype.completeGame = function() {

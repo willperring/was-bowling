@@ -43,8 +43,9 @@
 							<tr>
 								<td ng-class="{hilite: $index==gc.game.frame}" ng-repeat="frame in player.frames">
 									<span class="bowl" ng-repeat="score in frame.scores track by $index">{{score}}</span>
-									<span class="cumulative">0</span>
+									<span class="cumulative">{{frame.cumulativeScore}}</span>
 								</td>
+								<td>{{player.score}}</td>
 							</tr>
 						</table>
 
