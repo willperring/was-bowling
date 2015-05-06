@@ -1,5 +1,5 @@
 <?php
 
-Class Controller {
+Abstract class Controller {
 	
 }

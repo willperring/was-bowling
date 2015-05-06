@@ -26,6 +26,7 @@ if( !file_exists($configPath) )
 require_once( $configPath );
 
 $pdo = new PDO("mysql:host=127.0.0.1;port=3306;dbname=bowling", DB_USERNAME, DB_PASSWORD, array());
+$pdo->setAttribute( PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC );
 Model::setPDO( $pdo );
 
 

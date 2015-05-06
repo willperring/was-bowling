@@ -2,9 +2,9 @@
 
 Class Game extends Model {
 
-	protected $_table = 'game';
+	protected static $_table = 'game';
 
-	protected $_properties = array(
+	protected static $_properties = array(
 		'id' => array('pk'),
 	);
 	

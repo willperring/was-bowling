@@ -2,9 +2,9 @@
 
 Class Player extends Model {
 
-	protected $_table = 'player';
+	protected static $_table = 'player';
 
-	protected $_properties = array(
+	protected static $_properties = array(
 		'id'     => array('pk'),
 		'handle' => array(),
 	);
