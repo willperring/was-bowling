@@ -10,8 +10,6 @@ Frame = function( final ) {
 	this.scores   = this.getDisplayScores();
 
 	this.cumulativeScore = 0;
-
-	console.log( 'final', this.isFinal );
 }
 
 Frame.prototype.canAdd = function( score ) {
@@ -33,7 +31,6 @@ Frame.prototype.addBowl = function( score ) {
 
 	this.bowls.push( score );
 	this.total = this.getTotalPins();
-	this.scores = this.getDisplayScores();
 
 	if( this.total >= 10 && !this.isFinal ) {
 		this.complete = true;
@@ -48,12 +45,22 @@ Frame.prototype.addBowl = function( score ) {
 		this.complete = true;
 	} else if( this.isFinal && this.bowls.length == 2 && this.total < 10 ) {
 		this.complete = true;
-	} else if( !this.isFinal && this.bowls.length >= 2 ) {
+	} else if( ! this.isFinal && this.bowls.length >= 2 ) {
 		this.complete = true;
 	}
+
+	this.scores = this.getDisplayScores();
+
 }
 
 Frame.prototype.getDisplayScores = function() {
+
+	if( this.isStrike )
+		return ['S'];
+
+	if( this.isSpare )
+		return this.bowls.slice(0,-1).concat(['s']);
+
 	var blanks = (this.isFinal) ? [' ',' ',' '] : [' ',' '] ;
 	return this.bowls.concat( blanks.slice(this.bowls.length) );
 }

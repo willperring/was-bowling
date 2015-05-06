@@ -31,7 +31,9 @@ angular.module('bowlingApp', [])
 				var request = $http({
 					method : 'post',
 					url    : '/save',
-					data   : controller.game.getSaveData()
+					data   : {
+						game: controller.game.getSaveData()
+					}
 				});
 
 				request.success( function(response) {

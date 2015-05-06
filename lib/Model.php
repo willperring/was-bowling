@@ -4,6 +4,8 @@ Abstract class Model {
 
 	protected static $_PDO = null;
 
+	protected static $_transactionCounter = 0;
+
 	public static function setPDO( PDO $pdo ) {
 		static::$_PDO = $pdo;
 	}
@@ -11,6 +13,18 @@ Abstract class Model {
 	protected static function assertPDO() {
 		if( is_null(static::$_PDO) )
 			Throw new Exception("PDO connection has not been established");
+	}
+
+	public static function startTransaction() {
+		return static::$_PDO->beginTransaction();
+	}
+
+	public static function commitTransaction() {
+		return static::$_PDO->commit();
+	}
+
+	public static function rollbackTransaction() {
+			return static::$_PDO->rollBack();
 	}
 
 	public static function find_by( array $criteria ) {
@@ -81,8 +95,9 @@ Abstract class Model {
 
 		foreach( $this->_data as $key => $value ) {
 			// Don't set the primary key
-			if( in_array('pk', static::$_properties[$key]) )
+			if( in_array('pk', static::$_properties[$key]) ) {
 				continue;
+			}
 
 			$valuePairs[$key] = $value;
 			$placeholders[]   = ":{$key}";
@@ -96,7 +111,19 @@ Abstract class Model {
 		$query  = static::$_PDO->prepare( $statement );
 		$result = $query->execute( $valuePairs );
 
-		var_dump($result); exit;
+		if( $result ) {
+			$primaryKey = null;
+
+			foreach( static::$_properties as $field => $attributes ) {
+				if( in_array('pk', $attributes) )
+					$primaryKey = $field;
+			}
+
+			if( $primaryKey ) {
+				$this->$primaryKey = static::$_PDO->lastInsertId();
+				$this->_exists     = true;
+			}
+		}
 	}
 
 	protected function update() {
