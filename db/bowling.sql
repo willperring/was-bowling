@@ -47,7 +47,6 @@ CREATE TABLE IF NOT EXISTS `bowling`.`bowl` (
   `bowl` INT UNSIGNED NOT NULL,
   `count` INT NULL,
   `created` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
-  `bowlcol` VARCHAR(45) NULL,
   PRIMARY KEY (`gameid`, `playerid`, `frame`, `bowl`),
   INDEX `fk_bowlUser_idx` (`playerid` ASC),
   INDEX `fk_bowlGame_idx` (`gameid` ASC),

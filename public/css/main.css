@@ -21,19 +21,78 @@ blockquote:before, blockquote:after, q:before, q:after { content: ''; content: n
 /* line 50, ../../sass/partials/_reset.scss */
 table { border-collapse: collapse; border-spacing: 0; }
 
+/* line 1, ../../sass/partials/_layout.scss */
+html { height: 100%; background: #7d7e7d; /* Old browsers */ background: -moz-radial-gradient(center, ellipse cover, #7d7e7d 0%, #0e0e0e 100%); /* FF3.6+ */ background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #7d7e7d), color-stop(100%, #0e0e0e)); /* Chrome,Safari4+ */ background: -webkit-radial-gradient(center, ellipse cover, #7d7e7d 0%, #0e0e0e 100%); /* Chrome10+,Safari5.1+ */ background: -o-radial-gradient(center, ellipse cover, #7d7e7d 0%, #0e0e0e 100%); /* Opera 12+ */ background: -ms-radial-gradient(center, ellipse cover, #7d7e7d 0%, #0e0e0e 100%); /* IE10+ */ background: radial-gradient(ellipse at center, #7d7e7d 0%, #0e0e0e 100%); /* W3C */ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#7d7e7d', endColorstr='#0e0e0e',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */ }
+
+/* line 14, ../../sass/partials/_layout.scss */
+body, html { width: 100%; font-family: sans-serif; }
+
+/* line 19, ../../sass/partials/_layout.scss */
+h1 { text-align: center; margin: 1em 0; }
+
+/* line 25, ../../sass/partials/_layout.scss */
+#gameContainer { margin: 0 auto; width: 700px; text-align: center; }
+/* line 32, ../../sass/partials/_layout.scss */
+#gameContainer #startGame { margin: 0 auto; }
+/* line 36, ../../sass/partials/_layout.scss */
+#gameContainer table.scoresheet { width: 100%; background: white; border-radius: 3px; box-shadow: 0px 5px 10px 5px rgba(0, 0, 0, 0.3); }
+/* line 42, ../../sass/partials/_layout.scss */
+#gameContainer table.scoresheet .header td { background: #FFE0B2; border-radius: 3px 3px 0 0; padding: 5px 10px; }
+/* line 48, ../../sass/partials/_layout.scss */
+#gameContainer table.scoresheet th { width: 15% !important; text-align: left; padding: 0 5px; border-right: 1px solid #666; }
+/* line 56, ../../sass/partials/_layout.scss */
+#gameContainer table.scoresheet td { width: auto; }
+/* line 60, ../../sass/partials/_layout.scss */
+#gameContainer table.scoresheet td, #gameContainer table.scoresheet th { border-bottom: 1px solid #ccc; }
+/* line 64, ../../sass/partials/_layout.scss */
+#gameContainer table.scoresheet table.frames { table-layout: fixed; }
+/* line 68, ../../sass/partials/_layout.scss */
+#gameContainer table.scoresheet table.frames.ng-hide { display: block !important; visibility: hidden; opacity: 0; }
+/* line 74, ../../sass/partials/_layout.scss */
+#gameContainer table.scoresheet table.frames td { padding: 8px 0; }
+/* line 78, ../../sass/partials/_layout.scss */
+#gameContainer table.scoresheet table.frames td, #gameContainer table.scoresheet table.frames th { vertical-align: middle; }
+/* line 84, ../../sass/partials/_layout.scss */
+#gameContainer #interface { margin-top: 2em; }
+
+/* line 1, ../../sass/partials/_typography.scss */
+body { font-family: sans-serif; }
+
+/* line 5, ../../sass/partials/_typography.scss */
+h1 { font-size: 2em; font-weight: bold; color: white; text-shadow: 0px 5px 5px rgba(0, 0, 0, 0.3); }
+
+/* line 12, ../../sass/partials/_typography.scss */
+h2 { font-size: 1.2em; color: #333; }
+
+/* line 17, ../../sass/partials/_typography.scss */
+table.frames { font-size: 0.8em; }
+/* line 20, ../../sass/partials/_typography.scss */
+table.frames td.total { text-align: center; font-size: 2em; font-weight: bold; line-height: 26px; }
+
+/* line 28, ../../sass/partials/_typography.scss */
+a.button { font-weight: bold; text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2); color: #333; }
+/* line 33, ../../sass/partials/_typography.scss */
+a.button:hover { color: black; }
+
 /* line 1, ../../sass/partials/_ui.scss */
-a.button { margin: 5px 5px 5px 0; padding: 5px; border-radius: 5px; background: orange; display: inline-block; cursor: pointer; }
+a.button { margin: 5px 5px 5px 0; padding: 10px 15px; border-radius: 5px; display: inline-block; cursor: pointer; box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3); background: #feccb1; /* Old browsers */ background: -moz-linear-gradient(top, #feccb1 0%, #f17432 50%, #ea5507 51%, #fb955e 100%); /* FF3.6+ */ background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #feccb1), color-stop(50%, #f17432), color-stop(51%, #ea5507), color-stop(100%, #fb955e)); /* Chrome,Safari4+ */ background: -webkit-linear-gradient(top, #feccb1 0%, #f17432 50%, #ea5507 51%, #fb955e 100%); /* Chrome10+,Safari5.1+ */ background: -o-linear-gradient(top, #feccb1 0%, #f17432 50%, #ea5507 51%, #fb955e 100%); /* Opera 11.10+ */ background: -ms-linear-gradient(top, #feccb1 0%, #f17432 50%, #ea5507 51%, #fb955e 100%); /* IE10+ */ background: linear-gradient(to bottom, #feccb1 0%, #f17432 50%, #ea5507 51%, #fb955e 100%); /* W3C */ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#feccb1', endColorstr='#fb955e',GradientType=0 ); /* IE6-9 */ }
 
-/* line 1, ../../sass/partials/_scoreboard.scss */
-tr.hilite td { background: yellow; }
+/* line 2, ../../sass/partials/_scoreboard.scss */
+tr.hilite td, tr.hilite th { background: yellow; }
 
-/* line 6, ../../sass/partials/_scoreboard.scss */
+/* line 7, ../../sass/partials/_scoreboard.scss */
+table.frames { width: 100%; margin: 0; padding: 0; }
+/* line 13, ../../sass/partials/_scoreboard.scss */
 table.frames td { width: 60px; text-align: right; }
-/* line 9, ../../sass/partials/_scoreboard.scss */
-table.frames td .bowl { display: inline-block; width: 18px; height: 18px; text-align: center; padding: 3px 0; border: 1px solid black; vertical-align: top; margin-left: -1px; }
-/* line 19, ../../sass/partials/_scoreboard.scss */
-table.frames td .cumulative { display: block; }
-/* line 23, ../../sass/partials/_scoreboard.scss */
+/* line 17, ../../sass/partials/_scoreboard.scss */
+table.frames td.bowl { width: 8% !important; }
+/* line 18, ../../sass/partials/_scoreboard.scss */
+table.frames td.final { width: 12% !important; }
+/* line 20, ../../sass/partials/_scoreboard.scss */
+table.frames td span.bowl { display: inline-block; width: 18px; height: 18px; text-align: center; padding: 3px 0; border: 1px solid black; vertical-align: top; margin-left: -1px; }
+/* line 30, ../../sass/partials/_scoreboard.scss */
+table.frames td span.cumulative { display: block; margin-top: 5px; }
+/* line 35, ../../sass/partials/_scoreboard.scss */
 table.frames td.hilite { background: red; }
-/* line 25, ../../sass/partials/_scoreboard.scss */
+/* line 37, ../../sass/partials/_scoreboard.scss */
 tr.hilite table.frames td.hilite { background: orange; }

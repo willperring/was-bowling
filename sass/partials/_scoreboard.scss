@@ -1,12 +1,23 @@
-tr.hilite td {
-  background: yellow;
+tr.hilite {
+  td, th {
+    background: yellow;
+  }
 }
 
 table.frames {
+
+  width:        100%;
+  margin:       0;
+  padding:      0;
+
   td { 
     width: 60px;     
     text-align: right;
-    .bowl {
+
+    &.bowl  { width:  8% !important; }
+    &.final { width: 12% !important; }
+
+    span.bowl {
       display: inline-block; 
       width:   18px;
       height:  18px;
@@ -16,8 +27,9 @@ table.frames {
       vertical-align: top;
       margin-left: -1px;
     }
-    .cumulative { 
+    span.cumulative { 
       display: block;
+      margin-top: 5px;
     }
   }
   td.hilite { 

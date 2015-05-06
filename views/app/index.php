@@ -23,32 +23,35 @@
 
 	<h1>WeAreSocial: Bowling Kata</h1>
 
-	<div ng-controller="GameController as gc">
+	<div ng-controller="GameController as gc" id="gameContainer">
 
-		<a class="button" ng-show="! gc.game" ng-click="gc.startGame()">New Game</a>
+		<a class="button" id="startGame" ng-show="! gc.game" ng-click="gc.startGame()">New Game</a>
 		<div ng-show="gc.game">
 
 			<!-- table containing score information -->
 			<table class="scoresheet">
 
+				<tr class="header">
+					<td colspan="2">
+						<h2>Bowling Scorecard</h2>
+					</td>
+				</tr>
+
 				<!-- row for player -->
 				<tr ng-class="{hilite: $index==gc.game.player}" ng-repeat="player in gc.game.players">
-					<td>
+					<th>
 						<a ng-click="gc.game.setPlayer($index)">{{player.name}}</a>
-					</td>
+					</th>
 					<td>
-
-						<!-- table containing game frames -->
 						<table class="frames" ng-show="gc.game.started">
 							<tr>
-								<td ng-class="{hilite: $index==gc.game.frame}" ng-repeat="frame in player.frames">
+								<td ng-class="{hilite: $index==gc.game.frame, bowl: $index !=9, final: $index==9}" ng-repeat="frame in player.frames">
 									<span class="bowl" ng-repeat="score in frame.scores track by $index">{{score}}</span>
 									<span class="cumulative">{{frame.cumulativeScore}}</span>
 								</td>
-								<td>{{player.score}}</td>
+								<td class="total">{{player.score}}</td>
 							</tr>
 						</table>
-
 					</td>
 				</tr>
 

@@ -26,7 +26,6 @@ angular.module('bowlingApp', [])
 			controller.game.addBowl( score );
 
 			if( controller.game.complete ) {
-				console.log( 'game complete', controller.game.getSaveData() );
 				
 				var request = $http({
 					method : 'post',
