@@ -1,0 +1,15 @@
+@mixin respond( $type ) {
+	
+	@if $type == tablet {
+		@media only screen and (max-width: $widthTablet) {
+			@content;
+		}
+	}
+
+	@if type == mobile {
+		@media only screen and (max-width: $widthMobile) {
+			@content;
+		}
+	}
+
+}
