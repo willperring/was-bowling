@@ -93,8 +93,37 @@ Abstract class Model {
 		$placeholders = implode(', ', $placeholders );
 		$statement = "INSERT INTO {$table} ( {$fields} ) VALUES ( $placeholders );";
 
-		$query = static::$_PDO->prepare( $statement );
-		$query->execute( $valuePairs );
+		$query  = static::$_PDO->prepare( $statement );
+		$result = $query->execute( $valuePairs );
+
+		var_dump($result); exit;
+	}
+
+	protected function update() {
+
+		$valuePairs   = array();
+		$placeholders = array();
+		$primaryKey   = null;
+
+		foreach( $this->_data as $key => $value ) {
+			// Don't set the primary key
+			if( in_array('pk', static::$_properties[$key]) ) {
+				$primaryKey = "{$key}=" . $this->_data[$key];
+				continue;
+			}
+
+			$valuePairs[$key] = $value;
+			$placeholders[]   = "{$key}=:{$key}";
+		}
+
+		$table        = static::$_table;
+		$placeholders = implode(', ', $placeholders );
+		$statement = "UPDATE {$table} SET $placeholders WHERE {$primaryKey};";
+
+		$query  = static::$_PDO->prepare( $statement );
+		$result = $query->execute( $valuePairs );
+		
+		return $result;
 	}
 
 	protected function inflate( $data ) {

@@ -5,8 +5,10 @@ Class Player extends Model {
 	protected static $_table = 'player';
 
 	protected static $_properties = array(
-		'id'     => array('pk'),
-		'handle' => array(),
+		'id'        => array('pk'),
+		'handle'    => array(),
+		'gamecount' => array(),
+		'modified'  => array(),
 	);
 
 }
