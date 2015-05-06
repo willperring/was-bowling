@@ -46,6 +46,8 @@ Frame.prototype.addBowl = function( score ) {
 
 	if( this.isFinal && this.bowls.length >= 3 ) {
 		this.complete = true;
+	} else if( this.isFinal && this.bowls.length == 2 && this.total < 10 ) {
+		this.complete = true;
 	} else if( !this.isFinal && this.bowls.length >= 2 ) {
 		this.complete = true;
 	}
