@@ -118,7 +118,8 @@ Game.prototype.addBowl = function( score ) {
 		if( frame.complete )
 			this.advancePlayer();
 
-		this.updatePinsStanding();
+		if( !this.complete )
+			this.updatePinsStanding();
 	}
 	else alert('That score is too high to be added to the current frame');
 }

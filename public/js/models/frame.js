@@ -114,10 +114,16 @@ Frame.prototype.getDisplayScores = function() {
  * @return int Number of pins currently standing
  */
 Frame.prototype.getRemainingPins = function() {
+	
+	var totalPins = this.getTotalPins();
+
 	// 3rd frame of a final set (after spare or strike) - always 10
 	if( this.isFinal && this.bowls.length == 2 )
 		return 10;
-	return 10 - this.getTotalPins();
+	// If we got a strike on the first bowl of the last frame
+	if( this.isFinal && this.bowls.length == 1 && totalPins == 10 )
+		return 10;
+	return 10 - totalPins;
 }
 
 /**

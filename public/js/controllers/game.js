@@ -25,8 +25,8 @@ angular.module('bowlingApp', [])
 			controller.game = new Game();
 
 			// TODO: remove dev code
-			controller.game.addPlayer('Bob');
-			controller.game.addPlayer('Steve');
+			//controller.game.addPlayer('Bob');
+			//controller.game.addPlayer('Steve');
 		};
 
 		/**
