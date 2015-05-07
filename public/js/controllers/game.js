@@ -4,7 +4,7 @@ angular.module('bowlingApp', [])
 		var controller = this;
 
 		controller.game         = false;
-		controller.scoreButtons = ['miss', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+		controller.scoreButtons = ['miss', 1, 2, 3, 4, 5, 6, 7, 8, 9, 'strike'];
 
 		controller.startGame = function() {
 			controller.game = new Game();

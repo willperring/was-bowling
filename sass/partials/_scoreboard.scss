@@ -1,6 +1,6 @@
 tr.hilite {
   td, th {
-    background: yellow;
+    background: #D5E4FA;
   }
 }
 
@@ -20,20 +20,35 @@ table.frames {
     span.bowl {
       display: inline-block; 
       width:   18px;
-      height:  18px;
+      height:  13px;
       text-align: center;
       padding: 3px 0;
       border: 1px solid black;
       vertical-align: top;
       margin-left: -1px;
     }
+
     span.cumulative { 
       display: block;
       margin-top: 5px;
     }
   }
+
   td.hilite { 
-  	background: red; 
-  	tr.hilite & { background: orange; }
+  	background: #D5E4FA; 
+  	tr.hilite & { background: #a7c2ea; }
   }
 }
+
+@include respond( mobile ) {
+  table.frames {
+    td.hilite {
+      background: white;
+    }
+
+    span.bowl {
+      margin-bottom: -1px;
+    }
+  }
+}
+

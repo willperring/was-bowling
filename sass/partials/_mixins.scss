@@ -6,8 +6,14 @@
 		}
 	}
 
-	@if type == mobile {
+	@if $type == mobile {
 		@media only screen and (max-width: $widthMobile) {
+			@content;
+		}
+	}
+
+	@if $type == mobPortrait {
+		@media only screen and (max-width: $widthMobilePortrait) {
 			@content;
 		}
 	}

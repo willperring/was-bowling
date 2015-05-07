@@ -1,14 +1,15 @@
 html {
-	height: 100%;
+	/*height: 100%;*/
+	min-height: 100%;
 
-	background: #7d7e7d; /* Old browsers */
-	background: -moz-radial-gradient(center, ellipse cover,  #7d7e7d 0%, #0e0e0e 100%); /* FF3.6+ */
-	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#7d7e7d), color-stop(100%,#0e0e0e)); /* Chrome,Safari4+ */
-	background: -webkit-radial-gradient(center, ellipse cover,  #7d7e7d 0%,#0e0e0e 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-radial-gradient(center, ellipse cover,  #7d7e7d 0%,#0e0e0e 100%); /* Opera 12+ */
-	background: -ms-radial-gradient(center, ellipse cover,  #7d7e7d 0%,#0e0e0e 100%); /* IE10+ */
-	background: radial-gradient(ellipse at center,  #7d7e7d 0%,#0e0e0e 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', endColorstr='#0e0e0e',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+	background: #94b0db; /* Old browsers */
+	background: -moz-linear-gradient(top,  #94b0db 0%, #3e59a3 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#94b0db), color-stop(100%,#3e59a3)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #94b0db 0%,#3e59a3 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #94b0db 0%,#3e59a3 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #94b0db 0%,#3e59a3 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #94b0db 0%,#3e59a3 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#94b0db', endColorstr='#3e59a3',GradientType=0 ); /* IE6-9 */
 }
 
 body, html {
@@ -16,9 +17,17 @@ body, html {
 	font-family: sans-serif;
 }
 
+body {
+	padding-bottom: 20px;
+}
+
 h1 {
 	text-align: center;
 	margin:     1em 0;
+}
+
+.mobileOnly {
+	display: none;
 }
 
 
@@ -40,7 +49,7 @@ h1 {
 		box-shadow:    0px 5px 10px 5px rgba(0,0,0,0.3);
 
 		.header td {
-			background:    #FFE0B2;
+			background:    #A2BBED;
 			border-radius: 3px 3px 0 0;
 			padding:       5px 10px;
 		}
@@ -51,6 +60,11 @@ h1 {
 			padding:    0 5px;
 
 			border-right: 1px solid #666;
+
+			&.mobilePlayer {
+				padding: 10px 5px;
+				border-right: none;
+			}
 		}
 
 		td {
@@ -86,3 +100,35 @@ h1 {
 	}	
 
 }
+
+@include respond( tablet ) {
+	#gameContainer {
+		width:  100%;
+		margin: 0;
+	}
+}
+
+
+@include respond( mobile ) {
+	.noMobile {
+		display: none !important;
+	}
+
+	 table.frames td {
+		vertical-align: top !important;
+	}
+
+	tr.mobileOnly {
+		display: table-row;
+	}
+
+	#interface {
+		a.button {
+			width: 20%;
+		}
+		a.wide {
+			width: 70%;
+		}
+	}
+}
+

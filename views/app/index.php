@@ -4,6 +4,8 @@
 
 	<title>WAS: Bowling Game Kata</title>
 
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 
 	<!-- 3rd Party Libararies -->
@@ -38,8 +40,13 @@
 				</tr>
 
 				<!-- row for player -->
-				<tr ng-class="{hilite: $index==gc.game.player}" ng-repeat="player in gc.game.players">
-					<th>
+				<tr ng-class="{hilite: $index==gc.game.player, mobileOnly: true}" ng-repeat-start="player in gc.game.players">
+					<th colspan="2" class="mobilePlayer">
+						<a ng-click="gc.game.setPlayer($index)">{{player.name}}</a> {{player.score}}
+					</th>
+				</tr>
+				<tr ng-class="{hilite: $index==gc.game.player}" ng-repeat-end>
+					<th class="noMobile">
 						<a ng-click="gc.game.setPlayer($index)">{{player.name}}</a>
 					</th>
 					<td>
@@ -49,7 +56,7 @@
 									<span class="bowl" ng-repeat="score in frame.scores track by $index">{{score}}</span>
 									<span class="cumulative">{{frame.cumulativeScore}}</span>
 								</td>
-								<td class="total">{{player.score}}</td>
+								<td class="total noMobile">{{player.score}}</td>
 							</tr>
 						</table>
 					</td>
@@ -67,7 +74,7 @@
 
 			<!-- control input interface -->
 			<div id="interface" ng-show="gc.game.started && !gc.game.complete">
-				<a class="button" ng-click="gc.addBowl($index)" ng-repeat="button in gc.scoreButtons">{{button}}</a>
+				<a class="button" ng-click="gc.addBowl($index)" ng-repeat="button in gc.scoreButtons" ng-class="{wide: ( $index == 0 || $index == 10 )}">{{button}}</a>
 			</div>
 
 		</div>
