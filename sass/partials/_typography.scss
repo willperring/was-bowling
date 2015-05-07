@@ -2,6 +2,11 @@
 
 body {
 	font-family: 'Philosopher', sans-serif;
+	-webkit-font-smoothing: antialiased;
+}
+
+h1, h2, td, th {
+	-webkit-font-smoothing: antialiased;
 }
 
 h1 { 

@@ -74,7 +74,10 @@
 
 			<!-- control input interface -->
 			<div id="interface" ng-show="gc.game.started && !gc.game.complete">
-				<a class="button" ng-click="gc.addBowl($index)" ng-repeat="button in gc.scoreButtons" ng-class="{wide: ( $index == 0 || $index == 10 )}">{{button}}</a>
+				<a class="button" ng-click="gc.addBowl($index)" 
+				                  ng-repeat="button in gc.scoreButtons" 
+				                  ng-class="{wide: ( $index == 0 || $index == 10 ), disabled: ( $index > gc.game.pinsStanding )}"
+				                  >{{button}}</a>
 			</div>
 
 		</div>

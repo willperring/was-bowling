@@ -27,4 +27,8 @@ a.button {
 		background: linear-gradient(to bottom,  #354b77 0%,#1a3977 100%); /* W3C */
 		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#354b77', endColorstr='#1a3977',GradientType=0 ); /* IE6-9 */
 	}
+
+	&.disabled {
+		opacity: 0.3;
+	}
 }

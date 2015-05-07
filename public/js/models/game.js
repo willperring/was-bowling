@@ -9,6 +9,8 @@ Game = function() {
 	
 	game.frame  = null;
 	game.player = null;
+
+	game.pinsStanding = 10;
 	
 };
 
@@ -20,6 +22,11 @@ Game.prototype.addPlayer = function( name ) {
 Game.prototype.setPlayer = function( index ) {
 	if( this.started )
 		this.player = index;
+}
+
+Game.prototype.updatePinsStanding = function() {
+	this.pinsStanding = this.players[ this.player ].frames[ this.frame ].getRemainingPins();
+	console.log( 'standing', this.pinsStanding);
 }
 
 Game.prototype.advancePlayer = function() {
@@ -62,6 +69,8 @@ Game.prototype.addBowl = function( score ) {
 
 		if( frame.complete )
 			this.advancePlayer();
+
+		this.updatePinsStanding();
 	}
 	else alert('That score is too high to be added to the current frame');
 }
