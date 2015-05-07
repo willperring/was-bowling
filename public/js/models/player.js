@@ -1,17 +1,29 @@
+/**
+ * PLAYER Model
+ *
+ * @param string name The name of the player
+ * @constructor
+ */
 Player = function( name ) {
 
 	var player = this;
 
-	player.name   = name;
-	player.frames = [];
-	player.score  = 0;
+	player.name   = name; // @var string  Player name
+	player.frames = [];   // @var [Frame] Frames for the player
+	player.score  = 0;    // @var int     Player score (See FRAME Model Note on ANGULAR DATA BINDING)
 
+	// Initialise ten frames
 	for( var i=1; i<=10; i++ ) {
 		player.frames.push( new Frame((i==10 ? true : false)) );
 	}
 	
 }
 
+/**
+ * Get Raw save data for the player
+ *
+ * @return [[int]]
+ */
 Player.prototype.getSaveData = function() {
 	var rawData = [];
 	for( var i=0; i<this.frames.length; i++ ) {
@@ -22,6 +34,17 @@ Player.prototype.getSaveData = function() {
 	return rawData;
 }
 
+/**
+ * Calculate the sumulative scores for each frame in the game
+ *
+ * Because of the way bowling scores work, certain results (spare/strike) can depend
+ * on the results of subsequent bowls. Because of this, the scores need to be calculated from
+ * within the scope of the player model, where other Frame models in the chain can be accessed
+ * from. This function moves along the chain, passing in sibling objects to the individual frame 
+ * method for calculating score
+ *
+ * @return void
+ */
 Player.prototype.updateCumulativeTotals = function() {
 
 	var runningTotal = 0;
@@ -36,5 +59,4 @@ Player.prototype.updateCumulativeTotals = function() {
 	}
 
 	this.score = runningTotal;
-
 }

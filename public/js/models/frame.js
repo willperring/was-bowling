@@ -2,26 +2,29 @@
  * FRAME Model
  *
  * The frame respresents a single turn for a player, and can contain up to 3 bowls
+ *
+ * @param boolean final True if this is the final frame in the game
+ * @constructor
  */
 Frame = function( final ) {
 
-	/*
+	/* ANGULAR DATA BINDING
 	 * Some of these properties contain dynamic information that should generally be
 	 * accessed through functions, but storing them additionaly in variables allows
 	 * Angular to be notified of the update and alter the front end accordingly
 	 */
 
-	this.complete = false; // @var True when the game has finished
-	this.bowls    = [];    // @var Array of pins knocked over per bowl
-	this.total    = 0;     // @var Total score for this frame
-	this.isFinal  = final; // @var True if this is the final frame for the player
-	this.isSpare  = false; // @var True if frame is completed as a spare
-	this.isStrike = false; // @var True if frame is completed as a strike
+	this.complete = false; // @var boolean True when the game has finished
+	this.bowls    = [];    // @var [int]   Array of pins knocked over per bowl
+	this.total    = 0;     // @var int     Total score for this frame
+	this.isFinal  = final; // @var boolean True if this is the final frame for the player
+	this.isSpare  = false; // @var boolean True if frame is completed as a spare
+	this.isStrike = false; // @var boolean True if frame is completed as a strike
 
-	// @var 'Scores' vary from 'bowls' in that scores are padded with blanks for display
+	// @var [mixed] 'Scores' vary from 'bowls' in that scores are padded with blanks for display
 	this.scores   = this.getDisplayScores();
 
-	// @var Cumulative Score for this framw within the game. Set from within the Player model
+	// @var int Cumulative Score for this framw within the game. Set from within the Player model
 	this.cumulativeScore = 0;
 }
 
