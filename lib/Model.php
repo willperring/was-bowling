@@ -118,7 +118,7 @@ Abstract class Model {
 	}
 
 	//
-	// CLASS (STATIC) METHODS AND PROPERTIES
+	// INSTANCE METHODS AND PROPERTIES
 	//
 
 	/** @var array   $_data   Internal storage of instance properties */

@@ -41,6 +41,9 @@ angular.module('bowlingApp', [])
 				return false;
 
 			var name = prompt('Enter player name');
+			if( name.trim() == '' )
+				return false;
+
 			controller.game.addPlayer( name );
 		};
 

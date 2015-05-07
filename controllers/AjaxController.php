@@ -74,6 +74,9 @@ Class AjaxController extends Controller {
 		// First level is arrays of frames, keyed by player handle
 		foreach( $payload['game'] as $playerHandle => $frames ) {
 
+			if( empty($playerHandle) )
+				continue; // don't save empty players
+
 			// See if we've got this player in the system already...
 			$playerRows = Player::find_by(array('handle' => $playerHandle));
 
