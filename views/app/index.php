@@ -23,7 +23,7 @@
 
 <body>
 
-	<h1>WeAreSocial: Bowling Kata</h1>
+	<h1>WAS: Bowling Kata</h1>
 
 	<div ng-controller="GameController as gc" id="gameContainer">
 
